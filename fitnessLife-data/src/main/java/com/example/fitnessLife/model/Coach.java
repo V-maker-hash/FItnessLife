@@ -1,4 +1,5 @@
 package com.example.fitnessLife.model;
 
-public class Coach {
+public class Coach extends Person{
+
 }

@@ -1,6 +1,6 @@
 package com.example.fitnessLife.model;
 
-public class EquipmentType {
+public class EquipmentType extends BaseEntity{
 
     String name;
 

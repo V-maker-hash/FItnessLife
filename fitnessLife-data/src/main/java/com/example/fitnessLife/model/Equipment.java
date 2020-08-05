@@ -2,7 +2,7 @@ package com.example.fitnessLife.model;
 
 import java.time.LocalDate;
 
-public class Equipment {
+public class Equipment extends BaseEntity{
 
     private EquipmentType equipmentType;
     private Sportsman sportsman;
