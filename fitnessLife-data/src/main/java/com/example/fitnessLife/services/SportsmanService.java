@@ -4,10 +4,8 @@ import com.example.fitnessLife.model.Sportsman;
 
 import java.util.Set;
 
-public interface SportsmanService {
+public interface SportsmanService extends CrudService<Sportsman, Long> {
 
-    Sportsman findByLastName (String lastName);
-    Sportsman findById (Long id);
-    Sportsman save (Sportsman sportsman);
-    Set<Sportsman> findAll();
+    Sportsman findByLastName(String lastName);
+    
 }
