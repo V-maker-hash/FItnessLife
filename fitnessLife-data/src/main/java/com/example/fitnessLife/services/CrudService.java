@@ -5,7 +5,7 @@ import java.util.Set;
 public interface CrudService<T, ID> {
     T findbyId(ID id);
 
-    T save(T t);
+    T save(ID id, T t);
 
     Set<T> findAll();
 
