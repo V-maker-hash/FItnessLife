@@ -7,5 +7,4 @@ import java.util.Set;
 public interface SportsmanService extends CrudService<Sportsman, Long> {
 
     Sportsman findByLastName(String lastName);
-    
 }
