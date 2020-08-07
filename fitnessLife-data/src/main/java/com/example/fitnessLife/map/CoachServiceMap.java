@@ -19,7 +19,7 @@ public class CoachServiceMap extends AbstractMapService<Coach, Long> implements 
 
     @Override
     public Coach save(Coach coach) {
-        return super.save(coach.getId(), coach);
+        return super.save(coach);
     }
 
     @Override

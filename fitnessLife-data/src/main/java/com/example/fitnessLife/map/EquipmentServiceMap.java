@@ -14,7 +14,7 @@ public class EquipmentServiceMap extends AbstractMapService<Equipment, Long> imp
 
     @Override
     public Equipment save(Equipment equipment) {
-        return super.save(equipment.getId(), save(equipment));
+        return super.save(equipment);
     }
 
     @Override

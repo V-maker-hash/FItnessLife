@@ -18,7 +18,7 @@ public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> imp
 
     @Override
     public Sportsman save(Sportsman sportsman) {
-        return super.save(sportsman.getId(), sportsman);
+        return super.save(sportsman);
     }
 
 

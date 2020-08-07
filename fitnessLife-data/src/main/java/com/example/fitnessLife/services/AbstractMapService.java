@@ -1,18 +1,26 @@
 package com.example.fitnessLife.services;
 
+import com.example.fitnessLife.model.BaseEntity;
+
 import java.util.*;
 
-public abstract class AbstractMapService<T, ID> {
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 
-    protected Map<ID, T> map = new TreeMap<>();
+    protected Map<Long, T> map = new TreeMap<>();
 
     public T findbyId(ID id) {
         return map.get(id);
     }
 
 
-    public T save(ID id, T t) {
-        map.put(id, t);
+    public T save(T t) {
+        if (t != null) {
+            if (t.getId() == null) {
+                t.setId(getNextId());
+            }
+            map.put(t.getId(), t);
+        } else throw new RuntimeException("Object can not be null!");
+
         return t;
     }
 
@@ -29,5 +37,15 @@ public abstract class AbstractMapService<T, ID> {
 
     public void deleteById(ID id) {
         map.remove(id);
+    }
+
+    public Long getNextId() {
+        Long nextId = null;
+        try {
+            nextId = Collections.max(map.keySet()) + 1;
+        } catch (NoSuchElementException e) {
+            nextId = 1L;
+        }
+        return nextId;
     }
 }

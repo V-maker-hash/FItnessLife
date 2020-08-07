@@ -22,14 +22,12 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Sportsman sportsman = new Sportsman();
-        sportsman.setId(1L);
         sportsman.setFirstName("Brad");
         sportsman.setLastName("Pitt");
         sportsmanService.save(sportsman);
 
 
         Sportsman sportsman2 = new Sportsman();
-        sportsman2.setId(2L);
         sportsman2.setFirstName("Tim");
         sportsman2.setLastName("Jones");
         sportsmanService.save(sportsman2);
@@ -37,13 +35,11 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Loaded sportsmen...");
 
         Coach coach = new Coach();
-        coach.setId(1L);
         coach.setFirstName("Jimm");
         coach.setLastName("Carter");
         coachService.save(coach);
 
         Coach coach2 = new Coach();
-        coach2.setId(2L);
         coach2.setFirstName("Bob");
         coach2.setLastName("Jones");
         coachService.save(coach2);

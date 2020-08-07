@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/coach")
 public class CoachController {
+
     CoachService coachService;
 
     public CoachController(CoachService coachService) {
