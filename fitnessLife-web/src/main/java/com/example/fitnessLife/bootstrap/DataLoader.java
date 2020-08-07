@@ -5,11 +5,13 @@ import com.example.fitnessLife.model.Sportsman;
 import com.example.fitnessLife.services.CoachService;
 import com.example.fitnessLife.services.SportsmanService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataLoader implements CommandLineRunner {
 
-SportsmanService sportsmanService;
-CoachService coachService;
+    private final SportsmanService sportsmanService;
+    private final CoachService coachService;
 
     public DataLoader(SportsmanService sportsmanService, CoachService coachService) {
         this.sportsmanService = sportsmanService;

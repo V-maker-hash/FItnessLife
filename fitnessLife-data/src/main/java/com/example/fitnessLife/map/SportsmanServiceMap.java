@@ -3,9 +3,11 @@ package com.example.fitnessLife.map;
 import com.example.fitnessLife.model.Sportsman;
 import com.example.fitnessLife.services.AbstractMapService;
 import com.example.fitnessLife.services.SportsmanService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> implements SportsmanService {
 
 

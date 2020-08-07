@@ -5,9 +5,10 @@ import com.example.fitnessLife.model.Sportsman;
 import com.example.fitnessLife.services.AbstractMapService;
 import com.example.fitnessLife.services.CoachService;
 import com.example.fitnessLife.services.CrudService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class CoachServiceMap extends AbstractMapService<Coach, Long> implements CoachService {
 
 
