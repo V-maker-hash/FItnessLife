@@ -2,7 +2,9 @@ package com.example.fitnessLife.model;
 
 public class EquipmentType extends BaseEntity{
 
-    String name;
+    private String name;
+
+
 
     public String getName() {
         return name;

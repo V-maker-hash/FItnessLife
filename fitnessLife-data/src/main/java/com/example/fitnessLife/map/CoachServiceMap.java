@@ -3,11 +3,12 @@ package com.example.fitnessLife.map;
 import com.example.fitnessLife.model.Coach;
 import com.example.fitnessLife.model.Sportsman;
 import com.example.fitnessLife.services.AbstractMapService;
+import com.example.fitnessLife.services.CoachService;
 import com.example.fitnessLife.services.CrudService;
 
 import java.util.Set;
 
-public class CoachServiceMap extends AbstractMapService<Coach, Long> implements CrudService<Coach, Long> {
+public class CoachServiceMap extends AbstractMapService<Coach, Long> implements CoachService {
 
 
     @Override
@@ -16,8 +17,8 @@ public class CoachServiceMap extends AbstractMapService<Coach, Long> implements 
     }
 
     @Override
-    public Coach save(Long aLong, Coach coach) {
-        return super.save(aLong, coach);
+    public Coach save(Coach coach) {
+        return super.save(coach.getId(), coach);
     }
 
     @Override

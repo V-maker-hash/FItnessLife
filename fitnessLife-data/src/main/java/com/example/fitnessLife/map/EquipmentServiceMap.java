@@ -2,19 +2,19 @@ package com.example.fitnessLife.map;
 
 import com.example.fitnessLife.model.Equipment;
 import com.example.fitnessLife.services.AbstractMapService;
-import com.example.fitnessLife.services.CrudService;
+import com.example.fitnessLife.services.EquipmentService;
 
 import java.util.Set;
 
-public class EquipmentServiceMap extends AbstractMapService<Equipment, Long> implements CrudService<Equipment, Long> {
+public class EquipmentServiceMap extends AbstractMapService<Equipment, Long> implements EquipmentService {
     @Override
     public Equipment findbyId(Long aLong) {
         return super.findbyId(aLong);
     }
 
     @Override
-    public Equipment save(Long aLong, Equipment equipment) {
-        return super.save(aLong, equipment);
+    public Equipment save(Equipment equipment) {
+        return super.save(equipment.getId(), save(equipment));
     }
 
     @Override

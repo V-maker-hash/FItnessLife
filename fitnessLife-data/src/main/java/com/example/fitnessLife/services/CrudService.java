@@ -3,9 +3,10 @@ package com.example.fitnessLife.services;
 import java.util.Set;
 
 public interface CrudService<T, ID> {
+
     T findbyId(ID id);
 
-    T save(ID id, T t);
+    T save(T t);
 
     Set<T> findAll();
 

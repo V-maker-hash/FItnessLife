@@ -2,11 +2,11 @@ package com.example.fitnessLife.map;
 
 import com.example.fitnessLife.model.Sportsman;
 import com.example.fitnessLife.services.AbstractMapService;
-import com.example.fitnessLife.services.CrudService;
+import com.example.fitnessLife.services.SportsmanService;
 
 import java.util.Set;
 
-public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> implements CrudService<Sportsman, Long> {
+public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> implements SportsmanService {
 
 
     @Override
@@ -15,9 +15,10 @@ public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> imp
     }
 
     @Override
-    public Sportsman save(Long aLong, Sportsman sportsman) {
-        return super.save(aLong, sportsman);
+    public Sportsman save(Sportsman sportsman) {
+        return super.save(sportsman.getId(), sportsman);
     }
+
 
     @Override
     public Set<Sportsman> findAll() {
@@ -32,5 +33,10 @@ public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> imp
     @Override
     public void deleteById(Long aLong) {
         super.deleteById(aLong);
+    }
+
+    @Override
+    public Sportsman findByLastName(String lastName) {
+        return this.findByLastName(lastName);
     }
 }
