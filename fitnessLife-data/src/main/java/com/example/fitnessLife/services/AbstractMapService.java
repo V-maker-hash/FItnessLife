@@ -1,13 +1,10 @@
 package com.example.fitnessLife.services;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public abstract class AbstractMapService<T, ID> {
 
-    protected Map<ID, T> map = new HashMap();
+    protected Map<ID, T> map = new TreeMap<>();
 
     public T findbyId(ID id) {
         return map.get(id);

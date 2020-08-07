@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Coaches</title>
+</head>
+<body>
+
+<table border="1" >
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="temp : ${coaches}">
+        <td th:text="${temp.id}"><td/>
+        <td th:text="${temp.firstName}"><td/>
+        <td th:text="${temp.lastName}"><td/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
