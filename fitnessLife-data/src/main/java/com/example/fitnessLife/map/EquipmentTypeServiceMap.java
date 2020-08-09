@@ -2,10 +2,12 @@ package com.example.fitnessLife.map;
 
 import com.example.fitnessLife.model.EquipmentType;
 import com.example.fitnessLife.services.EquipmentTypeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class EquipmentTypeServiceMap extends AbstractMapService <EquipmentType,Long> implements EquipmentTypeService {
+@Service
+public class EquipmentTypeServiceMap extends AbstractMapService<EquipmentType, Long> implements EquipmentTypeService {
     @Override
     public EquipmentType findById(Long aLong) {
         return super.findById(aLong);
