@@ -1,12 +1,13 @@
 package com.example.fitnessLife.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Sportsman extends Person {
     private String address;
     private String city;
     private String telephone;
-    private Set<Equipment> equipmentSet;
+    private Set<Equipment> equipmentSet = new HashSet<>();
 
     public String getAddress() {
         return address;
