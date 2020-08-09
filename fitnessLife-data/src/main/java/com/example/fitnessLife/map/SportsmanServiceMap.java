@@ -1,7 +1,6 @@
 package com.example.fitnessLife.map;
 
 import com.example.fitnessLife.model.Sportsman;
-import com.example.fitnessLife.services.AbstractMapService;
 import com.example.fitnessLife.services.SportsmanService;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +11,8 @@ public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> imp
 
 
     @Override
-    public Sportsman findbyId(Long aLong) {
-        return super.findbyId(aLong);
+    public Sportsman findById(Long aLong) {
+        return super.findById(aLong);
     }
 
     @Override

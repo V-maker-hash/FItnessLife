@@ -1,4 +1,4 @@
-package com.example.fitnessLife.services;
+package com.example.fitnessLife.map;
 
 import com.example.fitnessLife.model.BaseEntity;
 
@@ -8,7 +8,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 
     protected Map<Long, T> map = new TreeMap<>();
 
-    public T findbyId(ID id) {
+    public T findById(ID id) {
         return map.get(id);
     }
 
