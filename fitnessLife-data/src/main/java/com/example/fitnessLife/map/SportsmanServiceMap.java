@@ -44,6 +44,7 @@ public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> imp
                     }
                 });
             }
+
             return super.save(sportsman);
 
         } else return null;
