@@ -1,11 +1,9 @@
 package com.example.fitnessLife.bootstrap;
 
-import com.example.fitnessLife.model.Coach;
-import com.example.fitnessLife.model.Equipment;
-import com.example.fitnessLife.model.EquipmentType;
-import com.example.fitnessLife.model.Sportsman;
+import com.example.fitnessLife.model.*;
 import com.example.fitnessLife.services.CoachService;
 import com.example.fitnessLife.services.EquipmentTypeService;
+import com.example.fitnessLife.services.SportService;
 import com.example.fitnessLife.services.SportsmanService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,15 +16,38 @@ public class DataLoader implements CommandLineRunner {
     private final SportsmanService sportsmanService;
     private final CoachService coachService;
     private final EquipmentTypeService equipmentTypeService;
+    private final SportService sportService;
 
-    public DataLoader(SportsmanService sportsmanService, CoachService coachService, EquipmentTypeService equipmentTypeService) {
+    public DataLoader(SportsmanService sportsmanService, CoachService coachService,
+                      EquipmentTypeService equipmentTypeService, SportService sportService) {
+
         this.sportsmanService = sportsmanService;
         this.coachService = coachService;
         this.equipmentTypeService = equipmentTypeService;
+        this.sportService = sportService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        int count = equipmentTypeService.findAll().size();
+        if (count == 0) {
+            loadData();
+        }
+    }
+
+    private void loadData() {
+        Sport swimming = new Sport();
+        swimming.setDescription("Swimming");
+        Sport savedSwimming = sportService.save(swimming);
+
+        Sport bodybuilding = new Sport();
+        bodybuilding.setDescription("Bodybuilding");
+        Sport savedBodybuilding = sportService.save(bodybuilding);
+
+        Sport boxing = new Sport();
+        boxing.setDescription("Boxing");
+        Sport savedBoxing = sportService.save(bodybuilding);
+
 
         EquipmentType equipmentType = new EquipmentType();
         equipmentType.setName("Expander");
@@ -68,9 +89,7 @@ public class DataLoader implements CommandLineRunner {
         timEquipment.setName(equipmentType2.getName());
         sportsman2.getEquipmentSet().add(timEquipment);
 
-
         System.out.println("Loaded sportsmen...");
-
 
         Coach coach = new Coach();
         coach.setFirstName("Jimm");
