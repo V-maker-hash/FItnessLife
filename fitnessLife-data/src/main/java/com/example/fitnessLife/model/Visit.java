@@ -1,10 +1,20 @@
 package com.example.fitnessLife.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "visit")
 public class Visit {
+
+    @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "equipment_id")
     private Equipment equipment;
 
     public LocalDate getDate() {
