@@ -1,12 +1,24 @@
 package com.example.fitnessLife.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "equipment")
 public class Equipment extends BaseEntity {
 
+    @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "equipment_type_id")
     private EquipmentType equipmentType;
+
+    @ManyToOne
+    @JoinColumn(name = "sportsman_id")
     private Sportsman sportsman;
+
+    @Column(name = "shopping_date")
     private LocalDate shoppingDate;
 
     public String getName() {

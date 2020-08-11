@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Coach extends Person {
+
     private Set<Sport> typesOfSport = new HashSet<>();
 
     public Set<Sport> getTypesOfSport() {
