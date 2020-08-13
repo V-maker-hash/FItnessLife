@@ -1,10 +1,7 @@
 package com.example.fitnessLife.bootstrap;
 
 import com.example.fitnessLife.model.*;
-import com.example.fitnessLife.services.CoachService;
-import com.example.fitnessLife.services.EquipmentTypeService;
-import com.example.fitnessLife.services.SportService;
-import com.example.fitnessLife.services.SportsmanService;
+import com.example.fitnessLife.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,14 +14,16 @@ public class DataLoader implements CommandLineRunner {
     private final CoachService coachService;
     private final EquipmentTypeService equipmentTypeService;
     private final SportService sportService;
+    private final VisitService visitService;
 
     public DataLoader(SportsmanService sportsmanService, CoachService coachService,
-                      EquipmentTypeService equipmentTypeService, SportService sportService) {
+                      EquipmentTypeService equipmentTypeService, SportService sportService, VisitService visitService) {
 
         this.sportsmanService = sportsmanService;
         this.coachService = coachService;
         this.equipmentTypeService = equipmentTypeService;
         this.sportService = sportService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -50,12 +49,14 @@ public class DataLoader implements CommandLineRunner {
 
 
         EquipmentType equipmentType = new EquipmentType();
-        equipmentType.setName("Expander");
-        EquipmentType expander = equipmentTypeService.save(equipmentType);
+        equipmentType.setName("Gym Equipment");
+        EquipmentType gymEquipment = equipmentTypeService.save(equipmentType);
 
         EquipmentType equipmentType2 = new EquipmentType();
-        equipmentType.setName("Swimming Suit");
-        EquipmentType swimmingSuit = equipmentTypeService.save(equipmentType2);
+        equipmentType.setName("Swimming Equipment");
+        EquipmentType swimmingEquipment = equipmentTypeService.save(equipmentType2);
+
+
 
 
         Sportsman sportsman = new Sportsman();
@@ -73,6 +74,10 @@ public class DataLoader implements CommandLineRunner {
         bradEquipment.setName(equipmentType.getName());
         sportsman.getEquipmentSet().add(bradEquipment);
 
+        Visit visit = new Visit();
+        visit.setDate(LocalDate.now());
+        visit.setDescription("Visit with Gym Equipment");
+        visit.setEquipment(bradEquipment);
 
         Sportsman sportsman2 = new Sportsman();
         sportsman2.setFirstName("Tim");
@@ -89,6 +94,10 @@ public class DataLoader implements CommandLineRunner {
         timEquipment.setName(equipmentType2.getName());
         sportsman2.getEquipmentSet().add(timEquipment);
 
+        Visit visit2 = new Visit();
+        visit2.setDate(LocalDate.now());
+        visit2.setDescription("Visit with Swimming Equipment");
+        visit2.setEquipment(timEquipment);
         System.out.println("Loaded sportsmen...");
 
         Coach coach = new Coach();
