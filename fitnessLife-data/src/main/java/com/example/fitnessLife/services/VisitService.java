@@ -1,4 +1,6 @@
 package com.example.fitnessLife.services;
 
-public interface VisitService extends CrudService {
+import com.example.fitnessLife.model.Visit;
+
+public interface VisitService extends CrudService<Visit, Long> {
 }
