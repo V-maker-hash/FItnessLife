@@ -1,4 +1,4 @@
-package com.example.fitnessLife.springDataJPA;
+package com.example.fitnessLife.springdatajpa;
 
 import com.example.fitnessLife.model.EquipmentType;
 import com.example.fitnessLife.reposotories.EquipmentTypeRepository;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Profile("springDataJPA")
+@Profile("springdatajpa")
 public class EquipmentTypeJpaService implements EquipmentTypeService {
 
     private final EquipmentTypeRepository equipmentTypeRepository;

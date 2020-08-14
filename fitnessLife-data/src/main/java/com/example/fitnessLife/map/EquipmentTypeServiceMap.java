@@ -2,11 +2,13 @@ package com.example.fitnessLife.map;
 
 import com.example.fitnessLife.model.EquipmentType;
 import com.example.fitnessLife.services.EquipmentTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class EquipmentTypeServiceMap extends AbstractMapService<EquipmentType, Long> implements EquipmentTypeService {
     @Override
     public EquipmentType findById(Long aLong) {

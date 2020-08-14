@@ -3,11 +3,13 @@ package com.example.fitnessLife.map;
 import com.example.fitnessLife.map.AbstractMapService;
 import com.example.fitnessLife.model.Sport;
 import com.example.fitnessLife.services.SportService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class SportServiceMap extends AbstractMapService<Sport, Long> implements SportService {
     @Override
     public Sport findById(Long aLong) {

@@ -56,9 +56,6 @@ public class DataLoader implements CommandLineRunner {
         equipmentType.setName("Swimming Equipment");
         EquipmentType swimmingEquipment = equipmentTypeService.save(equipmentType2);
 
-
-
-
         Sportsman sportsman = new Sportsman();
         sportsman.setFirstName("Brad");
         sportsman.setLastName("Pitt");
@@ -73,6 +70,7 @@ public class DataLoader implements CommandLineRunner {
         bradEquipment.setShoppingDate(LocalDate.now());
         bradEquipment.setName(equipmentType.getName());
         sportsman.getEquipmentSet().add(bradEquipment);
+
 
         Visit visit = new Visit();
         visit.setDate(LocalDate.now());

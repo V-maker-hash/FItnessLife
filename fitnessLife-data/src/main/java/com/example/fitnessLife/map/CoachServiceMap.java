@@ -4,11 +4,13 @@ import com.example.fitnessLife.model.Coach;
 import com.example.fitnessLife.model.Sport;
 import com.example.fitnessLife.services.CoachService;
 import com.example.fitnessLife.services.SportService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class CoachServiceMap extends AbstractMapService<Coach, Long> implements CoachService {
     private final SportService sportService;
 
