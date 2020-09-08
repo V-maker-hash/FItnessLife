@@ -30,7 +30,7 @@ public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> imp
     @Override
     public Sportsman save(Sportsman sportsman) {
 
-        if (sportsman == null) {
+        if (sportsman != null) {
             if (sportsman.getEquipmentSet() != null) {
                 sportsman.getEquipmentSet().forEach(equipment -> {
                     if (equipment.getEquipmentType() != null) {
@@ -71,6 +71,10 @@ public class SportsmanServiceMap extends AbstractMapService<Sportsman, Long> imp
 
     @Override
     public Sportsman findByLastName(String lastName) {
-        return this.findByLastName(lastName);
+        return this.findAll()
+                .stream()
+                .filter(sportsman -> sportsman.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }
