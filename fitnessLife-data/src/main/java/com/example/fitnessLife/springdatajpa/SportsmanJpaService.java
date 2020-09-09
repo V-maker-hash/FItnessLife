@@ -1,6 +1,8 @@
 package com.example.fitnessLife.springdatajpa;
 
 import com.example.fitnessLife.model.Sportsman;
+import com.example.fitnessLife.reposotories.EquipmentRepository;
+import com.example.fitnessLife.reposotories.EquipmentTypeRepository;
 import com.example.fitnessLife.reposotories.SportsmanRepository;
 import com.example.fitnessLife.services.SportsmanService;
 import org.springframework.context.annotation.Profile;
@@ -15,9 +17,13 @@ import java.util.Set;
 public class SportsmanJpaService implements SportsmanService {
 
     private final SportsmanRepository sportsmanRepository;
+    private final EquipmentRepository equipmentRepository;
+    private final EquipmentTypeRepository equipmentTypeRepository;
 
-    public SportsmanJpaService(SportsmanRepository sportsmanRepository) {
+    public SportsmanJpaService(SportsmanRepository sportsmanRepository, EquipmentRepository equipmentRepository, EquipmentTypeRepository equipmentTypeRepository) {
         this.sportsmanRepository = sportsmanRepository;
+        this.equipmentRepository = equipmentRepository;
+        this.equipmentTypeRepository = equipmentTypeRepository;
     }
 
     @Override
@@ -51,6 +57,6 @@ public class SportsmanJpaService implements SportsmanService {
 
     @Override
     public void deleteById(Long aLong) {
-
+        sportsmanRepository.deleteById(aLong);
     }
 }
